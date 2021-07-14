@@ -34,38 +34,11 @@ class MF(Recommender):
             self.item_biases = np.zeros(self.num_items)
             self.global_bias = 0.0
 
-    # def prepare_dictionary(self, df, colname_time='idx_time'):
-    #     print("start prepare dictionary")
-    #     self.colname_time = colname_time
-    #     self.num_times = np.max(df.loc[:, self.colname_time]) + 1
-    #     self.dict_positive_sets = dict()
-    #
-    #     df_posi = df.loc[df.loc[:, self.colname_outcome] > 0]
-    #
-    #     for t in np.arange(self.num_times):
-    #         df_t = df_posi.loc[df_posi.loc[:, self.colname_time] == t]
-    #         self.dict_positive_sets[t] = dict()
-    #         for u in np.unique(df_t.loc[:, self.colname_user]):
-    #             self.dict_positive_sets[t][u] = \
-    #                 np.unique(df_t.loc[df_t.loc[:, self.colname_user] == u, self.colname_item].values)
-    #
-    #     self.flag_prepared = True
-    #     print("prepared dictionary!")
 
 
     def train(self, df, iter = 100):
 
-        # by default, rating prediction
-        # outcome = rating
         df_train = df.loc[~np.isnan(df.loc[:, self.colname_outcome]), :]
-
-        # # in case of binary implicit feedback
-        # if self.metric == 'logloss':
-        #     df_train = df.loc[df.loc[:, self.colname_outcome] > 0, :]  # need only positive outcomes
-        #     if not self.flag_prepared: # prepare dictionary
-        #         self.prepare_dictionary(df)
-        # else:
-        #     df_train = df.loc[~np.isnan(df.loc[:, self.colname_outcome]), :]
 
         err = 0
         current_iter = 0

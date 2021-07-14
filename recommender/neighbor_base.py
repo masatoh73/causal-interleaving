@@ -1,7 +1,7 @@
 import numpy as np
 from recommender import Recommender
 
-# for binary outcome
+
 class NeighborBase(Recommender):
 
     def __init__(self, num_users, num_items,

@@ -23,10 +23,10 @@ class Ranker():
             # model condition
             'recommender': 'ULMF',
             'dim_factor': 200,
-            'with_bias': False, # this 'bias' means bias terms in MF, irrelevant to the bias discussed in the paper.
+            'with_bias': False, 
 
             # train condition
-            'reg_common': 0.01, # all regs are set to the value of reg_common if not specified.
+            'reg_common': 0.01, 
             'sd_init': 0.1,
             'reg_factor': -1.,
             'reg_bias': -1.,

@@ -213,8 +213,8 @@ class CausalNeighborBase(Recommender):
             for n in np.arange(len(df)):
                 u1 = users[n]
                 simil_users = np.fromiter(self.dict_simil_users[u1].keys(), dtype=int)
-                i_users_posi = self.dict_items2users[items[n]]  # users who consumed i=items[n]
-                i_users_treated = self.dict_items2users_treated[items[n]]  # users who are treated i=items[n]
+                i_users_posi = self.dict_items2users[items[n]]  # users who consumed 
+                i_users_treated = self.dict_items2users_treated[items[n]]  # users who are treated
                 if n % round(len(df)/10) == 0:
                     print(datetime.now())
                     print("progress of prediction computation: {:.1f} %".format(100 * n / len(df)))
@@ -271,8 +271,8 @@ class CausalNeighborBase(Recommender):
             for n in np.arange(len(df)):
                 i1 = items[n]
                 simil_items = np.fromiter(self.dict_simil_items[i1].keys(), dtype=int)
-                u_items_posi = self.dict_users2items[users[n]]  # items that is consumed by u=users[n]
-                u_items_treated = self.dict_users2items_treated[users[n]] # items that is treated for u=users[n]
+                u_items_posi = self.dict_users2items[users[n]]  # items that is consumed 
+                u_items_treated = self.dict_users2items_treated[users[n]] # items that is treated 
                 if n % round(len(df)/10) == 0:
                     print(datetime.now())
                     print("progress of prediction computation: {:.1f} %".format(100 * n / len(df)))
